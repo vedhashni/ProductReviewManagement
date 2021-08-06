@@ -59,5 +59,16 @@ namespace ReviewValidation
             Assert.AreEqual(expected, actual);
 
         }
+
+        /// <summary>
+        /// UC5---->Retrieving the product id in list
+        /// </summary>
+        [TestMethod]
+        public void TestMethodForProductId()
+        {
+            string expected = "1 2 3 2 1 2 4 9 3 5 7 9 10 1 5 3 12 14 18 13 2 4 19 3 5 ";
+            string actual = ProductReviewManager.RetrieveOnlyProductIdAndReviews(productList);
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
