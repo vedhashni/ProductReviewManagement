@@ -36,5 +36,16 @@ namespace ReviewValidation
             var actual = ProductReviewManager.RetrieveTopThreeRating(productList);
             Assert.AreEqual(expected, actual);
         }
+
+        /// <summary>
+        /// UC3-->Retrieve  records from list based on productid and rating > 3 
+        /// </summary>
+        [TestMethod]
+        public void TestMethodForRetrieveRecordsBasedOnRatingAndProductId()
+        {
+            int[] expected = { 1, 1, 4, 9, 9, 1, 4 };
+            var actual = ProductReviewManager.RetrieveRecordsBasedOnRatingAndProductId(productList);
+            CollectionAssert.AreEqual(expected, actual);
+        }
     }
 }

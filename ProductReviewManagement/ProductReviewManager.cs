@@ -68,6 +68,19 @@ namespace ProductReviewManagement
             IterateThroughList(res);
             return res.Count;
         }
+
+        /// <summary>
+        /// UC3-->Retrieve  records from list based on productid and rating > 3  
+        /// </summary>
+        /// <param name="products"></param>
+        /// <returns></returns>
+        public static int[] RetrieveRecordsBasedOnRatingAndProductId(List<ProductReview> products)
+        {
+            AddingProductReview(products);
+            Console.WriteLine("\n-----------Retrieve Records Based On Rating and Product Id-----------");
+            var res = (from product in products where product.rating > 3 && (product.productId == 1 || product.productId == 4 || product.productId == 9) select product.productId).ToArray();
+            return res;
+        }
     }
 }
 
