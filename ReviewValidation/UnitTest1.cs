@@ -70,5 +70,16 @@ namespace ReviewValidation
             string actual = ProductReviewManager.RetrieveOnlyProductIdAndReviews(productList);
             Assert.AreEqual(expected, actual);
         }
+
+        /// <summary>
+        /// UC6--->Skip Top five records(Already 25 Records present in list)
+        /// </summary>
+        [TestMethod]
+        public void TestMethodSkipTopFiveRecords()
+        {
+            int expected = 20;
+            int actual = ProductReviewManager.SkipTopFiveRecords(productList);
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

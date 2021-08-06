@@ -120,6 +120,20 @@ namespace ProductReviewManagement
             }
             return result;
         }
+
+        /// <summary>
+        /// UC6--->Skip Top five records
+        /// </summary>
+        /// <param name="products"></param>
+        /// <returns></returns>
+        public static int SkipTopFiveRecords(List<ProductReview> products)
+        {
+            AddingProductReview(products);
+            Console.WriteLine("\n----------Skip Top Five records in list");
+            var res = (from product in products orderby product.rating descending select product).Skip(5).ToList();
+            IterateThroughList(res);
+            return res.Count;
+        }
     }
 }
 
